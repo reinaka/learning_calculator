@@ -1,0 +1,123 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+#root {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    background-color: #252B37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+}
+
+.calculator {
+    position: relative;
+    width: 360px;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    color: #bc84fb;
+    animation: textColor 10s ease infinite;
+}
+
+@keyframes textColor {
+    0% {
+        color: #d1aef9;
+    }
+    50% {
+        color: #92fbe1;
+    }
+    100% {
+        color: #d1aef9;
+    }
+}
+
+.calculator::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    -webkit-filter: blur(5vw);
+    -moz-filter: blur(5vw);
+    -ms-filter: blur(5vw);
+    filter: blur(5vw);
+    background: linear-gradient(50deg, #0fffc1, #7e0fff);
+    background-size: 200% 200%;
+    animation: animateGlow 5s ease infinite;
+    
+    @keyframes animateGlow {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+}
+
+@keyframes animateGlow {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.output {
+    height: minmax(80px, auto);
+    background-color: rgba(21, 24, 35, 0.5);
+    border-radius: 8px 8px 0 0;
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fafafa;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output_current {
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.buttons_wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: #151823;
+    border-radius: 0 0 8px 8px;
+    padding: 0 20px 0 20px;
+}
+
+.button_span2 {
+    grid-column: span 2;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    max-height: 90%/4;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 20px;
+    transition: 0.3s ease;
+}
+
+.button:hover {
+    color: #fafafa;
+    font-weight: 600;
+    font-size: 28px;
+}
